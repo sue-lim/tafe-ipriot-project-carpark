@@ -6,6 +6,7 @@ class Display:
         self.is_on = is_on or False
 
     def update(self, data):
+        """ Update display us """
         for key, value in data.items():
             print(f"{key}:{value}")
 
