@@ -772,6 +772,18 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
+![img.png](img.png)
+
+The first message we added was hardcoded as the key / value pair. 
+
+Code on display.py amended to enable changes to be made. 
+
+![img_1.png](img_1.png)
+
+Test Passed 
+
+![img_2.png](img_2.png)
+
    ```markdown
    ![Unit tests](images/unit-tests-display.png)
    ```

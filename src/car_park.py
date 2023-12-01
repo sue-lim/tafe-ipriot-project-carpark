@@ -13,26 +13,10 @@ class CarPark:
         self.plates = plates or []
         self.sensors = sensors or []
         self.displays = displays or []
-        self.log_file = Path(log_file)
-        if not self.log_file.exists():
-            self.log_file.touch()
+        # self.log_file = Path(log_file)
 
-    def to_json(self, file_name):
-        with open(file_name, "w") as file:
-            json.dump({"location": self.location,
-                       "capacity": self.capacity,
-                       "log_file": str(self.log_file)}, file)
 
-    @staticmethod
-    def from_jason(file_name):
-        """ Allows the creation of an instance of car park from json.
-        >>> car_park = CarPark.from_jason("some_file.txt")
-        """
-        with open(file_name, "r") as file:
-            conf= json.load(file)
-        return CarPark(location=conf["location"],
-                       capacity=int(conf["capacity"]),
-                       log_file=conf["log_file"])
+
     @property
     # decorator, which allows a methods to act like an attribute
     def available_bays(self):
@@ -52,18 +36,16 @@ class CarPark:
         elif isinstance(component, Display):
             self.displays.append(component)
 
-    def _log_car(self, action, plate):
-        with self.log_file.open(mode="a") as file:
-            file.write(f"{plate} {action} on the {datetime.now().strftime("%d-%m %H:%M")}\n")
+
     def add_car(self, plate):
         self.plates.append(plate)
         self.update_displays()
-        self._log_car("entered", plate)
+
 
     def remove_car(self, plate):
         self.plates.remove(plate)
         self.update_displays()
-        self._log_car("exited", plate)
+
     def update_displays(self):
         for display in self.displays:
             display.update({"Bays": self.available_bays, "Temperature": 42})
