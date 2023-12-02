@@ -891,7 +891,7 @@ Typically, we import the `Path` class from the `pathlib` module. We can then use
 
    **Bonus:** Unlink? What does that mean? Well, it turns out when you delete files on most operating system, what actually happens is you unlink the file from a directory entry. The data is still there, but can now be overwritten. When we program, we often use the more precise and explicit term.
    Notice how we have inadvertently made our test code hard to maintain (if we change the name of the log file, we have to change it in two places). Can you think of a way to improve this code? Hint: consider using a class attribute or new instance variable in the `setUp` method.
-
+> 
 5. Finally, there is are two more test case we are going to add, since you have worked so hard you can just copy/paste this code:
 
    ```python
@@ -983,7 +983,7 @@ Let's now implement the functionality to make the unit tests pass (if you have w
    git merge feature/log-car-activity
    git tag -a "s9" -m "Added logging functionality"
    ```
-
+![img_evidence_11.png](img_evidence_11.png)
 4. Push the main branch to the remote repository.
 
    ```python
@@ -1088,9 +1088,8 @@ In your final submission, you must include any files you created or modified. Th
 
 1. Add a screenshot of the output of the `main.py` file:
 
-   ```markdown
-   ![Main.py output](images/main-py.png)
-   ```
+![main_py.png](main_py.png)
+
 
 2. Commit your changes to the local repository. Tag the commit with `v1`, so your lecturer can find it. Ensure the commit includes the log and config files (though you would typically ignore them).
 3. Push the tag to the remote repository.

@@ -21,4 +21,9 @@ class Display:
                 print(f"Key '{key}' does not exist in Display object.")
 
     def __str__(self):
-        return f"{self.id}: Display is {'is on' if self.is_on else 'if off'}"
+        # if self.is_on:
+        #     return f"{self.id}: Display is is on"
+        # else:
+        #     return f"{self.id}: Display is is off"
+
+        return f"ID: {self.id}: {self.message} Display is {'On' if self.is_on else 'Off'}"

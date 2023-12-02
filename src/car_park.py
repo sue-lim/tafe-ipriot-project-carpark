@@ -22,10 +22,26 @@ class CarPark:
         self.displays = displays or []
         self.log_file = Path(log_file)
         if not self.log_file.exists():
-        # self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
-        # create the file if it doesn't exist
+            # self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
+            # create the file if it doesn't exist
             self.log_file.touch()
 
+    def to_json(self, file_name):
+        with open(file_name, "w") as file:
+            json.dump({"location": self.location,
+                      "capacity": self.capacity,
+                      "log_file": str(self.log_file)}, file)
+
+    @staticmethod
+    def from_json(file_name):
+        """ Allows the creation of an instance of a car park from json.
+        >>> car_park = CarPark.from_json('some_file.txt')
+        """
+        with open(file_name, "r") as file:
+            conf = json.load(file)
+        return CarPark(location=conf["location"],
+                       capacity=int(conf["capacity"]),
+                       log_file=conf["log_file"])
     @property
     # decorator, which allows a methods to act like an attribute
     def available_bays(self):
@@ -62,8 +78,8 @@ class CarPark:
 
     # in CarPark class
     def _log_car_activity(self, plate, action):
-        with self.log_file.open(mode="a") as f:
-            f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
+        with self.log_file.open("a") as f:
+            f.write(f"{plate} {action} at {datetime.now()}\n")
 
     def __str__(self):
         return f"Welcome to car park at {self.location}, with {self.capacity} bays."
