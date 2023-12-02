@@ -2,6 +2,7 @@ import unittest
 from car_park import CarPark
 from display import Display
 from pathlib import Path
+
 from sensor import EntrySensor, ExitSensor
 
 
@@ -33,7 +34,6 @@ class TestCarPark(unittest.TestCase):
     def test_register_raises_type_error(self):
         car_park = CarPark("123 Example Street", 100)
         non_sensor_display = "Not a Sensor or a Display"
-
         with self.assertRaises(TypeError):
             self.car_park.register(non_sensor_display)
 
@@ -52,9 +52,9 @@ class TestCarPark(unittest.TestCase):
         self.car_park.add_car("NEW-001")
         with self.car_park.log_file.open() as f:
             last_line = f.readlines()[-1]
-        self.assertIn(last_line, "NEW-001")  # check plate entered
-        self.assertIn(last_line, "entered")  # check description
-        self.assertIn(last_line, "\n")  # check entry has a new line
+        self.assertIn("NEW-001", last_line)  # check plate entered
+        self.assertIn("entered", last_line)  # check description
+        self.assertIn("\n", last_line)  # check entry has a new line
 
     def test_car_logged_when_exiting(self):
         car_park = CarPark(
@@ -64,17 +64,18 @@ class TestCarPark(unittest.TestCase):
         self.car_park.remove_car("NEW-001")
         with self.car_park.log_file.open() as f:
             last_line = f.readlines()[-1]
-        self.assertIn(last_line, "NEW-001")  # check plate entered
-        self.assertIn(last_line, "exited")  # check description
-        self.assertIn(last_line, "\n")  # check entry has a new line
+        self.assertIn("NEW-001", last_line)  # check plate entered
+        self.assertIn("exited", last_line)  # check description
+        self.assertIn("\n", last_line)  # check entry has a new line
+
 
     #
     # def test_logging_of_cars_existing_car_park(self):
     #     self.car_park.add_car("NEW-01")
     #     self.car_park.remove_car("NEW-01")
-    #     with self.car_park.log_file("r") as f:
+    #     with self.car_park.log_file("w") as f:
     #         last_write = f.readlines()[-1]
-    #     self.assertIn("NEW-01", last_write)
+    #     self.assertIn("NEW-001", last_write)
     #     self.assertIn("exited", last_write)
 
     def test_overfill_the_car_park(self):
