@@ -772,17 +772,17 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-![img.png](img.png)
+![img_evidence_9a.png](img_evidence_9a.png)
 
 The first message we added was hardcoded as the key / value pair. 
 
 Code on display.py amended to enable changes to be made. 
 
-![img_1.png](img_1.png)
+![img_evidence_9b.png](img_evidence_9b.png)
 
 Test Passed 
 
-![img_2.png](img_2.png)
+![img_evidence_9c.png](img_evidence_9c.png)
 
    ```markdown
    ![Unit tests](images/unit-tests-display.png)
@@ -804,6 +804,7 @@ Finally, we'll create tests for the `Sensor` class. These tests will test the `_
 The car park register method should accept a `Sensor` or `Display` object. It should raise a `TypeError` if the object is neither a `Sensor` nor a `Display`. Before proceeding, think about where you would test this behaviour. Should you test it in the `CarPark` unit tests or the `Sensor` unit tests? Why?
 
 > Answer here...
+> It should test in the carpark unit test 
 
 Create a new unit test in the `test_car_park.py` file called `test_register_raises_type_error`. This test should create a `CarPark` object and a `str` object. It should then call the `register` method on the `CarPark` object with the `str` object as a parameter. The test should assert that a `TypeError` is raised. Here is a sample implementation:
 

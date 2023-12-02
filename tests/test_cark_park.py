@@ -28,6 +28,13 @@ class TestCarPark(unittest.TestCase):
         self.assertEqual(self.car_park.plates, [])
         self.assertEqual(self.car_park.available_bays, 100)
 
+    def test_register_raises_type_error(self):
+        car_park = CarPark("123 Example Street", 100)
+        non_sensor_display = "Not a Sensor or a Display"
+
+        with self.assertRaises(TypeError):
+            self.car_park.register(non_sensor_display)
+
     # def test_logging_of_cars_entering_car_park(self):
     #     self.car_park.add_car("NEW-01")
     #     with self.car_park.log_file.open("r") as f:
@@ -63,8 +70,7 @@ class TestCarPark(unittest.TestCase):
 class TestDisplay(unittest.TestCase):
     def setUp(self):
         self.display = Display(
-            1, CarPark("123 Example Street", 100),
-            "Welcome to the car park", True
+            1, CarPark("123 Example Street", 100), "Welcome to the car park", True
         )
 
     def test_display_initialized_with_all_attributes(self):
