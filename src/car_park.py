@@ -16,7 +16,6 @@ class CarPark:
         # self.log_file = Path(log_file)
 
 
-
     @property
     # decorator, which allows a methods to act like an attribute
     def available_bays(self):
