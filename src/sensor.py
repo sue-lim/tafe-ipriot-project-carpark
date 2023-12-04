@@ -35,10 +35,7 @@ class EntrySensor(Sensor):
         print(f"Incoming vehicle detected. Plate: {plate}")
 
     def __str__(self):
-        if self.is_active:
-            return f"ID: {self.id}: Entry Sensor status is active"
-        else:
-            return f"ID: {self.id}: Entry Sensor status is inactive"
+        return f"ID: {self.id}: Entry Sensor status is {'**ACTIVE**' if self.is_active else '**INACTIVE**'}."
 
 class ExitSensor(Sensor):
     def _scan_plate(self):
@@ -53,7 +50,4 @@ class ExitSensor(Sensor):
         return self.car_park.location
 
     def __str__(self):
-        if self.is_active:
-            return f"ID: {self.id}: Exit Sensor status is active"
-        else:
-            return f"ID: {self.id}: Exit Sensor status is inactive"
+        return f"ID: {self.id}: Exit Sensor status is {'**ACTIVE**' if self.is_active else '**INACTIVE**'}."

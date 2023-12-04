@@ -62,7 +62,7 @@ This guide provides detailed step-by-step instructions for completing the projec
       ```
 
 **Evidencing:**
-Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
+<mark>Include a screenshot of your GitHub repository **after** you have pushed your initial commit.</mark>
 
 ![img_evidence_1.png](img_evidence_1.png)
 
@@ -71,14 +71,14 @@ Include a screenshot of your GitHub repository **after** you have pushed your in
 
 After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
-| Class Name | Attributes                   | Methods         |
-| ---------- |------------------------------|-----------------|
-| `CarPark`    | car_added<br/>car_space<br/> | spots_available |
-| `Sensor`     |                              |                 |
-| `Display`    |                              |                 |
+| Class Name | Attributes                    | Methods                                |
+| ---------- |-------------------------------|----------------------------------------|
+| `CarPark`    | car_added<br/>car_space<br/>  | spots_available <br/>register_vehicles |
+| `Sensor`     | is_on / is off <br/>  id      | scan_plates<br/>detect_cars            |
+| `Display`    | is_on / is off <br/> message  | input_message <br/> output_message     |
 
 **Evidencing:**
-Ensure you have completed the previous table and include at least two methods and attributes for each.
+<mark> Ensure you have completed the previous table and include at least two methods and attributes for each.</mark>
 
 ### Implement stubs for the classes
 
@@ -101,7 +101,7 @@ Ensure you have completed the previous table and include at least two methods an
       ```
 
 **Evidencing:**
-Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
+<mark> Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.</mark>
 
 ![img_evidence_2.png](img_evidence_2.png)
 
@@ -141,7 +141,8 @@ Include a screenshot of your GitHub repository `src/` directory **after** you ha
    git tag -a "s1" -m "Added a constructor and attributes to the car park class"
    ```
    
-**Evidencing: Tag added and also screenshot **
+**Evidencing:**
+<mark>Tag added and also screenshot **</mark>
 
 ![img_evidence_3.png](img_evidence_3.png)
 
@@ -207,9 +208,10 @@ You realize that you need a way to configure the car park system. You decide to 
 
 --------
 **Evidencing:**
-Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.
+<mark>Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.</mark>
 
 ![img_evidence_4a.png](img_evidence_4a.png)
+
 ![img_evidence_4b.png](img_evidence_4b.png)
 
 ```bash
@@ -310,7 +312,7 @@ We will focus on these key principles to guide the need for additional methods a
 3. If the `component` is neither a `Sensor` nor a `Display`, raise a `TypeError` with the message `"Object must be a Sensor or Display"`.
 
 **Stuck?**
-Here are some some hints to help you complete this task:
+Here are some hints to help you complete this task:
 
 Even though we often think of exceptions last, we generally want to put them first in our method definitions. This is because exceptions are exceptional. We want to handle them first and then handle the normal flow of the method. This is called a **guard pattern** and is a common pattern in Python and other languages.
 Let's do that now. Add the following code to the top of the `register` method:
@@ -339,7 +341,7 @@ Now we can add the code to add the `component` to the appropriate. Add the follo
    ```
 
 **Evidencing:**
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:
+<mark>After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:</mark>
 
    ```bash
    git add .
@@ -347,6 +349,7 @@ After you have implemented the required code, commit your changes to the local r
    git tag -a "s3" -m "Added a register method to the car park class"
    ```
 ![img.png](img_evidence_5a.png)
+
 ![img_1.png](img_evidence_5b.png)
 
 #### Add and remove car methods
@@ -374,11 +377,14 @@ Finally, we are going to create the `update_displays` method. This method will i
 
 You may want to see the number of available bays, the current temperature, and the time.
 
-Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each of these pieces of information? There's no right or wrong answer here. But you should be able to justify your answer.
+<mark>Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each of these pieces of information? There's no right or wrong answer here. But you should be able to justify your answer.</mark>
 
-Q. Which class is responsible for the number of available bays (and why)?
-Q. Which class is responsible for the current temperature (and why)?
-Q. Which class is responsible for the time (and why)?
+Q. Which class is responsible for the number of available bays (and why)?<br>
+  In this instance, the CarPark class is responsible for the available bays as there is a method within the class that is responsible for it.<br><br> 
+Q. Which class is responsible for the current temperature (and why)? <br>
+In this instance, the CarPark class is responsible since the current temperature is hardcoded into the 'update_displays' method. If we needed to retrieve the current temperature dynamically, we could create a 'get_temperature' function.<br><br>
+Q. Which class is responsible for the time (and why)?<br>
+  In this instance, as CarPark has the datetime import, it is responsible for the time. 
 
 --------
 
@@ -430,7 +436,7 @@ The `update_displays` method shall send status information: available bays, temp
    ```
 
 **Evidencing:**
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:
+<mark>After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:</mark>
 
    ```bash
    git add .
@@ -444,31 +450,31 @@ This time, we will push the tag to the remote repository:
    git push --tags
    ```
 
-Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
+<mark>Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:</mark>
 
 ![img_evidence_6.png](img_evidence_6.png)
 ```markdown
 ![Added methods to the car park class](images/methods-to-car-park.png)
 ```
 
-Answer the following questions:
+<mark>Answer the following questions:</mark>
 > **Review Questions**
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*  
->      `Answer here...`
+>      The CarPark class is responsible for the available bays as there is a method within the class that is responsible for it.
 >    - *The current temperature*  
->      `Answer here...`
+>      The CarPark class is responsible since the current temperature is hardcoded into the update_displays method. If we needed to retrieve the current temperature dynamically, we could create a get_temperature function.
 >    - *The time*  
->      `Answer here...`
+>      The CarPark class has the datetime import, it is responsible for managing time.
 >
 > 2. **What is the difference between an attribute and a property?**  
->    `Answer here...`
+>    - The difference between attributes and properties, is that attributes are simply data members of an object, while properties are methods that are accessed like attributes but actually perform some computation when called.<br>
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**  
->    `Answer here...`
-
-
+>    - Using a dictionary to hold the data passed to the display offers the following advantages:
+>     - Firstly, it allows us to pass multiple key/value pairs. This flexibility enhances the readability of the data displayed.
+>      - However, a disadvantage is that dictionaries, being flexible, don't enforce a specific format or structure for the passed data. This lack of structure might lead to potential issues, especially if the display expects a certain format for the incoming data.
 #### Add a detect vehicle method to the Sensor class
 
 A sensor detects a vehicle, scans the plate, and notifies the car park. The Sensor class is specialized by the EntrySensor and ExitSensor classes. We will implement the `detect_vehicle` method in the `EntrySensor` and `ExitSensor` classes.
@@ -563,7 +569,7 @@ def _scan_plate(self):
 ```
 
 **Evidencing:**
-After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:
+<mark>After you have implemented the required code, commit your changes to the local repository and add a tag so your lecturer can find it:</mark>
 
    ```bash
    git add .
@@ -709,7 +715,8 @@ if __name__ == "__main__":
 
 **Evidencing:**
 
-1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
+1. <mark>Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:</mark>
+
 ![img_evidence_8a.png](img_evidence_8b.png)  
 
 ![img_evidence_8b.png](img_evidence_8a.png)
@@ -770,7 +777,7 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 **Evidencing:**
 
-1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
+1. <mark>Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:</mark>
 
 ![img_evidence_9a.png](img_evidence_9a.png)
 
@@ -819,9 +826,9 @@ with self.assertRaises(TypeError):
 
 **Evidencing:**
 
-Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.
+<mark>Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.</mark>
 
-![img_evidence_10a.png](img_evidence_10a.png)
+![img_evidence_10a.png](img_evidence_10a.png)<br>
 ![img_evidence_10b.png](img_evidence_10b.png)
 --------
 ### Additional functionality: TDD
@@ -969,7 +976,7 @@ Let's now implement the functionality to make the unit tests pass (if you have w
 6. If you have created the unit tests, run them in PyCharm. Confirm that they now pass.
 
 **Evidencing:**
-
+<mark> Commit / Branch / Tag Screenshots below </mark>
 1. Add and commit your changes to the branch
 2. Now we are going to merge the branch back into the main branch. First, switch to the main branch:
 
@@ -1049,7 +1056,8 @@ We are going to do the latter:
 5. If you have created the unit tests, run them in PyCharm. Confirm that they now pass.
 
 **Evidencing:**
-After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
+
+<mark>After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:</mark>
 
 ```markdown
 ![Added methods to the car park class](images/methods-to-car-park.png)
@@ -1086,7 +1094,7 @@ In your final submission, you must include any files you created or modified. Th
 
 **Evidencing:**
 
-1. Add a screenshot of the output of the `main.py` file:
+1. <mark>Add a screenshot of the output of the `main.py` file:</mark>
 
 ![main_py.png](main_py.png)
 

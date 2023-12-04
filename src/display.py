@@ -22,8 +22,8 @@ class Display:
 
     def __str__(self):
         # if self.is_on:
-        #     return f"{self.id}: Display is is on"
+        #     return f"{self.id}: Display is on"
         # else:
-        #     return f"{self.id}: Display is is off"
+        #     return f"{self.id}: Display is off"
 
-        return f"ID: {self.id}: {self.message} Display is {'On' if self.is_on else 'Off'}"
+        return f"ID: {self.id}: {self.message} Display is {'**ON**' if self.is_on else '**OFF**'}."
